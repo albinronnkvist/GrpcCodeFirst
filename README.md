@@ -5,7 +5,25 @@ It is made possible using the [protobuf-net.Grpc](https://protobuf-net.github.io
 
 ## Validation
 
-Fluent Validation will be added...
+Request message validation is done with the [grpc-aspnetcore-validator](https://github.com/AnthonyGiretti/grpc-aspnetcore-validator) package. It is integrated with [Fluent Validation](https://github.com/FluentValidation/FluentValidation).
+
+To list valdiation errors on the client, see the following simple example:
+
+```
+try
+{
+
+    using var channel = GrpcChannel.ForAddress("https://localhost:7039");
+    var client =  channel.CreateGrpcService<IBouncerService>();
+    
+    // Empty Name value and incorrect Age value that raises validation errors
+    var reply = await client.EnterClubAsync(new EnterRequest { Name = "", Age = -25 });
+}
+catch (RpcException e) when (ex.StatusCode == StatusCode.InvalidArgument)
+{
+    var errors = e.GetValidationErrors(); // Gets list of validation errors
+}
+```
 
 ## Authentication / Authorization
 
