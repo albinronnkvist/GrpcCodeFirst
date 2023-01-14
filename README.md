@@ -7,7 +7,7 @@ It is made possible using the [protobuf-net.Grpc](https://protobuf-net.github.io
 
 Request message validation is done with the [grpc-aspnetcore-validator](https://github.com/AnthonyGiretti/grpc-aspnetcore-validator) package. It is integrated with [Fluent Validation](https://github.com/FluentValidation/FluentValidation).
 
-To list valdiation errors on the client, see the following simple example:
+To list validation errors on the client, see the following example:
 
 ```
 try
