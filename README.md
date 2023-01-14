@@ -15,7 +15,7 @@ Azure AD Client Credentials Flow will be added...
 
 A [built-in containers](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container) approach is used:
 
-- Build image with dotnet publish: _dotnet publish -c Release_
+- Build image with dotnet publish: _dotnet publish --os linux --arch x64 -c Release_
 - Run container: _docker run -p 5000:80 -d [image-name]:[tag]_
 - Push to remote repository: 
   - First change tag: _docker tag [image-name]:[tag] [remote-repository-url]/[image-name]:[new-tag]_
