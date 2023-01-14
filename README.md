@@ -23,3 +23,10 @@ A [built-in containers](https://learn.microsoft.com/en-us/dotnet/core/docker/pub
 
 [_Jammy-chiseled_](https://github.com/dotnet/dotnet-docker/blob/ad733d1665b76ca944213fbce779922c39466a54/src/aspnet/7.0/jammy-chiseled/amd64/Dockerfile) is used as the base image.
 It's a small and secure image with only the packages required to run the container, no package manager, no shell and non-root user.
+
+## Testing
+
+It is possible to test the gRPC service using [Postman or gRPCurl](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-tools?view=aspnetcore-7.0).
+You could also run tests from the _IntegrationTest_ project. Read more about [testing gRPC services in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-services?view=aspnetcore-7.0).
+
+The reflection service is also enabled, which allows clients to dynamically discover the available methods and their input and output types.
