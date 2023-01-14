@@ -1,4 +1,5 @@
 ﻿using Albin.GrpcCodeFirst.Server.Services;
+using Calzolari.Grpc.AspNetCore.Validation;
 using ProtoBuf.Grpc.Server;
 
 namespace Albin.GrpcCodeFirst.Server;
@@ -19,7 +20,12 @@ public class Startup
             {
                 options.EnableDetailedErrors = true;
             }
+
+            options.EnableMessageValidation();
         });
+        services.AddValidators();
+        services.AddGrpcValidation();
+
         services.AddCodeFirstGrpcReflection();
     }
 
