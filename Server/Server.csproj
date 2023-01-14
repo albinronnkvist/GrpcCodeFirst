@@ -14,7 +14,6 @@
 	<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:7.0-jammy</ContainerBaseImage>
 	<PublishSingleFile>true</PublishSingleFile>
 	<SelfContained>true</SelfContained>
-	<RuntimeIdentifier>linux-x64</RuntimeIdentifier>
 	<PublishProfile>DefaultContainer</PublishProfile>
   </PropertyGroup>
 
