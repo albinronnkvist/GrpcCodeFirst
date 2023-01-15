@@ -19,15 +19,22 @@ try
     // Empty Name value and incorrect Age value that raises validation errors
     var reply = await client.EnterClubAsync(new EnterRequest { Name = "", Age = -25 });
 }
-catch (RpcException e) when (ex.StatusCode == StatusCode.InvalidArgument)
+catch (RpcException ex) when (ex.StatusCode == StatusCode.InvalidArgument)
 {
-    var errors = e.GetValidationErrors(); // Gets list of validation errors
+    var errors = ex.GetValidationErrors(); // Gets list of validation errors
 }
 ```
 
 ## Authentication / Authorization
 
 Azure AD Client Credentials Flow will be added...
+
+## Testing
+
+It is possible to test the gRPC service using [Postman or gRPCurl](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-tools?view=aspnetcore-7.0).
+You could also run tests from the _IntegrationTest_ project. Read more about [testing gRPC services in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-services?view=aspnetcore-7.0).
+
+The reflection service is also enabled, which allows clients to dynamically discover the available methods and their input and output types.
 
 ## Docker
 
@@ -41,10 +48,3 @@ A [built-in containers](https://learn.microsoft.com/en-us/dotnet/core/docker/pub
 
 [_Jammy-chiseled_](https://github.com/dotnet/dotnet-docker/blob/ad733d1665b76ca944213fbce779922c39466a54/src/aspnet/7.0/jammy-chiseled/amd64/Dockerfile) is used as the base image.
 It's a small and secure image with only the packages required to run the container, no package manager, no shell and non-root user.
-
-## Testing
-
-It is possible to test the gRPC service using [Postman or gRPCurl](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-tools?view=aspnetcore-7.0).
-You could also run tests from the _IntegrationTest_ project. Read more about [testing gRPC services in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-services?view=aspnetcore-7.0).
-
-The reflection service is also enabled, which allows clients to dynamically discover the available methods and their input and output types.
