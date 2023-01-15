@@ -35,9 +35,13 @@ internal class Program
                     {
                         Name = name,
                         Age = age
-                    });
+                    }, new CallOptions(deadline: DateTime.UtcNow.AddSeconds(5)));
 
                 Console.WriteLine($"Reply: {reply.Message}");
+            }
+            catch (RpcException ex) when (ex.StatusCode == StatusCode.DeadlineExceeded)
+            {
+                Console.WriteLine("Timeout. The call took more than 5 seconds to finish.");
             }
             catch (RpcException ex) when (ex.StatusCode == StatusCode.InvalidArgument)
             {
