@@ -92,7 +92,7 @@ internal class Program
     {
         try
         {
-            Console.WriteLine("\nSay your name and age to enter the club. You have to be 23 years old or above.");
+            Console.WriteLine("\nYou choose to NOT enter the VIP section. Say your name and age to enter the club. You have to be 23 years old or above.");
 
             // Enter nothing (empty string) to get validation error
             Console.Write("\nEnter name: ");
