@@ -21,7 +21,7 @@ public class BouncerService : IBouncerService
             });
     }
 
-    [Authorize(Roles = "Club.VipAccess")]
+    [Authorize(Policy = "VIP")]
     public Task<EnterReply> EnterClubVipSectionAsync(EnterRequest request, CallContext context = default)
     {
         var isAllowedToEnter = request.Age >= 23;

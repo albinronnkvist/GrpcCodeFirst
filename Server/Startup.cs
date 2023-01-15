@@ -32,7 +32,14 @@ public class Startup
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddMicrosoftIdentityWebApi(_config.GetSection("AzureAd"));
-        services.AddAuthorization();
+
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("VIP", policy => policy
+                .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                .RequireRole("Club.VipAccess")
+                .RequireAuthenticatedUser());
+        });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
