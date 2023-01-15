@@ -2,6 +2,7 @@
 using Calzolari.Grpc.Net.Client.Validation;
 using Grpc.Core;
 using Grpc.Net.Client;
+using Grpc.Net.Client.Configuration;
 using ProtoBuf.Grpc.Client;
 
 namespace Albin.GrpcCodeFirst.Client;
@@ -10,7 +11,11 @@ internal class Program
     private static async Task Main(string[] args)
     {
         ConsoleKeyInfo cki;
-        using var channel = GrpcChannel.ForAddress("https://localhost:7039");
+        using var channel = GrpcChannel.ForAddress("https://localhost:7039", new GrpcChannelOptions
+        {
+            // A service config can be used to configure gRPC retries.
+            ServiceConfig = new ServiceConfig { MethodConfigs = { RetryPolicyConfig.GetBaseRetryPolicyConfig() } }
+        });
 
         do
         {
