@@ -12,7 +12,6 @@ To list validation errors on the client, see the following example:
 ```
 try
 {
-
     using var channel = GrpcChannel.ForAddress("https://localhost:7039");
     var client =  channel.CreateGrpcService<IBouncerService>();
     
