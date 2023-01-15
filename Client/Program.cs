@@ -10,6 +10,7 @@ internal class Program
     private static async Task Main(string[] args)
     {
         ConsoleKeyInfo cki;
+        using var channel = GrpcChannel.ForAddress("https://localhost:7039");
 
         do
         {
@@ -27,7 +28,6 @@ internal class Program
             {
                 Console.WriteLine("\nSending request...");
 
-                using var channel = GrpcChannel.ForAddress("https://localhost:7039");
                 var client = channel.CreateGrpcService<IBouncerService>();
 
                 var reply = await client.EnterClubAsync(
@@ -49,7 +49,7 @@ internal class Program
 
                 foreach (var error in errors)
                 {
-                    Console.WriteLine($"\n{error.ErrorMessage} Attempted value: {error.AttemptedValue}");
+                    Console.WriteLine($"{error.ErrorMessage} Attempted value: {error.AttemptedValue}");
                 }
             }
 
