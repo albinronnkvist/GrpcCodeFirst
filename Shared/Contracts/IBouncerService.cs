@@ -9,6 +9,9 @@ public interface IBouncerService
 {
     [OperationContract]
     Task<EnterReply> EnterClubAsync(EnterRequest request, CallContext context = default);
+
+    [OperationContract]
+    Task<EnterReply> EnterClubVipSectionAsync(EnterRequest request, CallContext context = default);
 }
 
 [DataContract]

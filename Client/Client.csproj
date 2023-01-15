@@ -7,11 +7,13 @@
     <Nullable>enable</Nullable>
 	<AssemblyName>Albin.GrpcCodeFirst.Client</AssemblyName>
 	<RootNamespace>Albin.GrpcCodeFirst.Client</RootNamespace>
+	<UserSecretsId>75b5a4af-75f2-4e5c-b773-a19bd0e7118d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Calzolari.Grpc.Net.Client.Validation" Version="6.2.0" />
     <PackageReference Include="Grpc.Net.Client" Version="2.51.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
     <PackageReference Include="protobuf-net.Grpc" Version="1.0.179" />
   </ItemGroup>
 

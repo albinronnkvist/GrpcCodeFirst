@@ -1,5 +1,7 @@
 ﻿using Albin.GrpcCodeFirst.Server.Services;
 using Calzolari.Grpc.AspNetCore.Validation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
 using ProtoBuf.Grpc.Server;
 
 namespace Albin.GrpcCodeFirst.Server;
@@ -27,6 +29,10 @@ public class Startup
         services.AddGrpcValidation();
 
         services.AddCodeFirstGrpcReflection();
+
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApi(_config.GetSection("AzureAd"));
+        services.AddAuthorization();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +44,9 @@ public class Startup
         }
 
         app.UseRouting();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
         {

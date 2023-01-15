@@ -20,6 +20,7 @@
   <ItemGroup>
     <PackageReference Include="Calzolari.Grpc.AspNetCore.Validation" Version="6.2.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.51.0" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="1.25.10" />
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.179" />
