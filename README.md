@@ -26,12 +26,15 @@ catch (RpcException ex) when (ex.StatusCode == StatusCode.InvalidArgument)
 
 ## Authentication / Authorization
 
-Azure AD Client Credentials Flow will be added...
+[Azure AD Client Credentials Flow](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) is used.
+
+See the [Azure AD Client Credentials Flow with ASP.NET Core Web API](https://medium.com/@albinronnkvist/azure-ad-client-credential-flow-with-asp-net-core-web-api-f2a1f7b29532) article for a full tutorial on how to implement it.
 
 ## Testing
 
 It is possible to test the gRPC service using [Postman or gRPCurl](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-tools?view=aspnetcore-7.0).
-You could also run tests from the _IntegrationTest_ project. Read more about [testing gRPC services in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-services?view=aspnetcore-7.0).
+
+You can also run tests from the _IntegrationTest_ project. Read more about [testing gRPC services in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/grpc/test-services?view=aspnetcore-7.0).
 
 The reflection service is also enabled, which allows clients to dynamically discover the available methods and their input and output types.
 
