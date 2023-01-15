@@ -78,7 +78,7 @@ internal class Program
                 Console.WriteLine($"{error.ErrorMessage} Attempted value: {error.AttemptedValue}");
             }
         }
-        catch (RpcException ex) when (ex.StatusCode == StatusCode.Unauthenticated)
+        catch (RpcException ex) when (ex.StatusCode == StatusCode.Unauthenticated || ex.StatusCode == StatusCode.PermissionDenied)
         {
             Console.WriteLine($"The Bouncer denied you access to the VIP section: you don't have a valid VIP pass. ({ex.StatusCode})");
         }

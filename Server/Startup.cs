@@ -37,7 +37,7 @@ public class Startup
         {
             options.AddPolicy("VIP", policy => policy
                 .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-                .RequireRole("Club.VipAccess")
+                .RequireRole("Club.VipAccess, Club.Owner")
                 .RequireAuthenticatedUser());
         });
     }
