@@ -2,7 +2,7 @@
 
 namespace Albin.GrpcCodeFirst.WebApiClient.Services;
 
-public interface IAzureAdClient
+public interface ITokenClient
 {
     Task<TokenInfo> GetAccessTokenAsync();
 }

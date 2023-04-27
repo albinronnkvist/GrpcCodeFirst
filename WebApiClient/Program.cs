@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IValidator<EnterRequest>, EnterRequestValidator>();
-builder.Services.AddTransient<IAzureAdClient, AzureAdClient>();
+builder.Services.AddTransient<ITokenClient, TokenClient>();
 builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
 
 builder.Services.Configure<BouncerOptions>(builder.Configuration.GetSection(nameof(BouncerOptions)));
@@ -66,7 +66,7 @@ builder.Services.AddCodeFirstGrpcClient<IBouncerService>(opt =>
 })
 .EnableCallContextPropagation();
 
-builder.Services.AddHttpClient<IAzureAdClient, AzureAdClient>(opt =>
+builder.Services.AddHttpClient<ITokenClient, TokenClient>(opt =>
 {
     opt.BaseAddress = new Uri("https://login.microsoftonline.com/");
 })

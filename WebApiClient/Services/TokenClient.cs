@@ -9,12 +9,12 @@ using Microsoft.Extensions.Options;
 
 namespace Albin.GrpcCodeFirst.WebApiClient.Services;
 
-public class AzureAdClient : IAzureAdClient
+public class TokenClient : ITokenClient
 {
     private readonly HttpClient _httpClient;
     private readonly AzureAdOptions _options;
 
-    public AzureAdClient(HttpClient httpClient, IOptions<AzureAdOptions> options)
+    public TokenClient(HttpClient httpClient, IOptions<AzureAdOptions> options)
     {
         _httpClient = httpClient;
         _options = options.Value;
