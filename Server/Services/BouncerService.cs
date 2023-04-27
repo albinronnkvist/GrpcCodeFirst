@@ -1,7 +1,6 @@
 using Albin.GrpcCodeFirst.Shared.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using ProtoBuf.Grpc;
-using System.Data;
 
 namespace Albin.GrpcCodeFirst.Server.Services;
 

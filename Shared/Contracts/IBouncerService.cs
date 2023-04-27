@@ -15,21 +15,21 @@ public interface IBouncerService
 }
 
 [DataContract]
-public class EnterReply
+public record EnterReply
 {
     [DataMember(Order = 1)]
-    public bool AllowEntry { get; set; }
+    public bool AllowEntry { get; init; }
 
     [DataMember(Order = 2)]
-    public required string Message { get; set; }
+    public required string Message { get; init; }
 }
 
 [DataContract]
-public class EnterRequest
+public record EnterRequest
 {
     [DataMember(Order = 1)]
-    public required string Name { get; set; }
+    public required string Name { get; init; }
 
     [DataMember(Order = 2)]
-    public int Age { get; set; }
+    public int Age { get; init; }
 }
